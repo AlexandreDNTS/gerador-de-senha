@@ -7,6 +7,7 @@ def tela_inicial():
         [sg.Text('\n\tGERADOR DE SENHA\t')],
         [sg.Text('tamanho da senha')],
         [sg.Input(key='tam')],
+        [sg.Text('Min: 5 Max: 25')],
         [sg.Text('', key='msgtam')],
         [sg.Button('gerar senha')],
         [sg.Text('', key='senha')]
@@ -22,12 +23,12 @@ while True:
         break
     if window == telaInicial and eventos == 'gerar senha':
         valor = int(valores['tam'])
-        if valor >= 5:
-            TAM = valor
-            for i in range(0, TAM):
-                s = randint(0, TAM)
-
-                window['senha'].update(f'{s}')
-
+        if valor < 5 or valor > 25:
+            print(
+                'a senha deve ter um tamanho minimo de  5 caractere e um tamanho maximo de 25 caracteres')
         else:
-            window['msgtam'].update('tamanho minimo 5')
+            i = 0
+            while i < valor:
+                senha = randint(0, valor)
+                i += 1
+                print(senha)
