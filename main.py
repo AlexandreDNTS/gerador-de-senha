@@ -54,7 +54,7 @@ while True:
                     i = 0
                     while i < valor:
 
-                        listasenhaalfab.append(listaalfabeto[0, 25])
+                        listasenhaalfab.append(listaalfabeto[randint(0, 26)])
 
                         i += 1
                     window['msgtam'].update(listasenhaalfab)
